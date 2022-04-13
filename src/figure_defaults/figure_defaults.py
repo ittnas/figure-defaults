@@ -50,6 +50,9 @@ class FigureDefaults:
                        'nature_dc': self.nature_dc,
                        'anc_style': self.anc_style,
                        'presentation': self.presentation,
+                       'pr_single_column': self.pr_single_column,
+                       'pr_double_column': self.pr_double_column,
+                       'pr_one_and_half_column': self.pr_one_and_half_column,
                        }
             options[self._style]()
 
@@ -298,6 +301,43 @@ class FigureDefaults:
         self.fontsize = 6
         self.figure_size = 6.1
         self.font = 'Times New Roman'
+
+    def pr(self):
+        self.fontsize = 6
+        self.figure_size = 3 + 3/8
+        self.font = 'Times New Roman'
+        self.markersize = 3
+        self.markeredgewidth = self.markersize/7
+        self.linewidth = 1
+        self.alpha = 0.7
+        self.capsize = self.markersize
+        self.size_fraction_x = 1
+        self.size_fraction_y = 1
+        #self.color_cycle = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
+        self.color_cycle = [
+            '#648fff',
+            '#fe6100',
+            '#dc267f',
+            '#785ef0',
+            '#ffb000',
+            '#000000',
+            '#ffffff',
+        ]
+
+
+
+    def pr_single_column(self):
+        self.pr()
+        self.figure_size = 3 + 3/8
+
+    def pr_one_and_half_column(self):
+        self.pr()
+        self.figure_size = (3 + 3/8)*1.5
+
+    def pr_double_column(self):
+        self.pr()
+        self.figure_size = (3 + 3/8)*2
+
 
     def anc_style(self):
         self.fontsize = 6
